@@ -17,5 +17,7 @@ void kernel_main() {
     }
     con_print("my new string after scro\tlling\n");
 
+    con_print("Checking\t horizontal tab!\n");
+
     for(;;);
 }
