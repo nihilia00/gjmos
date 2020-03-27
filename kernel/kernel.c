@@ -12,5 +12,10 @@ void kernel_main() {
     con_print("Hello from kernel!\n");
     con_print("The tab\t is work\ning!\n");
 
+    for(int i = 0; i < 50; i++) {
+        con_print("Hello from kernel!\n");
+    }
+    con_print("my new string after scro\tlling\n");
+
     for(;;);
 }
