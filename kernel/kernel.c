@@ -10,6 +10,7 @@
 void kernel_main() {
     coninit();
     con_print("Hello from kernel!\n");
+    con_print("The tab\t is work\ning!\n");
 
     for(;;);
 }

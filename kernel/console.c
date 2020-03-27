@@ -1,6 +1,7 @@
 #include <stddef.h>
 #include <stdint.h>
 
+static const int TAB_SPACES = 4;
 static const size_t VGA_WIDTH = 80;
 static const size_t VGA_HEIGHT = 25;
 static size_t current_row = 0;
@@ -37,10 +38,18 @@ void coninit() {
 }
 
 void con_putchar(char ch) {
-    vram_buffer[current_row * VGA_WIDTH + current_col]
-        = make_vga_entry(ch);
+    if(ch == '\n') {
+        current_row++;
+        current_col = 0;
+    } else if(ch == '\t') {
+        current_col += TAB_SPACES;
+    } else {
+        vram_buffer[current_row * VGA_WIDTH + current_col]
+            = make_vga_entry(ch);
 
-    current_col++;
+        current_col++;
+    }
+
     if(current_col == VGA_WIDTH) {
         current_col = 0;
 
